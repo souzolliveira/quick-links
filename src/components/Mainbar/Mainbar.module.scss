@@ -1,0 +1,12 @@
+.mainbar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 24px;
+
+  h2 {
+    margin: 0 0 16px;
+  }
+}
