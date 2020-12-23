@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 
 import File from "components/File/File";
@@ -6,42 +6,38 @@ import File from "components/File/File";
 import styles from "./Mainbar.module.scss";
 
 const Mainbar = ({ history }) => {
-  const [files, setFiles] = useState([]);
-
-  useEffect(() => {
-    setFiles([
-      "file01.txt",
-      "file02.txt",
-      "file03.txt",
-      "file04.txt",
-      "file05.txt",
-      "file06.txt",
-      "file07.txt",
-      "file08.txt",
-      "file09.txt",
-      "file10.txt",
-      "file11.txt",
-      "file12.txt",
-      "file13.txt",
-      "file14.txt",
-      "file15.txt",
-      "file16.txt",
-      "file17.txt",
-      "file18.txt",
-      "file19.txt",
-      "file20.txt",
-      "file21.txt",
-      "file22.txt",
-      "file23.txt",
-      "file24.txt",
-      "file25.txt",
-      "file26.txt",
-      "file27.txt",
-      "file28.txt",
-      "file29.txt",
-      "file30.txt",
-    ]);
-  }, []);
+  const files = [
+    "file01",
+    "file02",
+    "file03",
+    "file04",
+    "file05",
+    "file06",
+    "file07",
+    "file08",
+    "file09",
+    "file10",
+    "file11",
+    "file12",
+    "file13",
+    "file14",
+    "file15",
+    "file16",
+    "file17",
+    "file18",
+    "file19",
+    "file20",
+    "file21",
+    "file22",
+    "file23",
+    "file24",
+    "file25",
+    "file26",
+    "file27",
+    "file28",
+    "file29",
+    "file30",
+  ];
 
   return (
     <div id="mainbar" className={styles.mainbar}>
