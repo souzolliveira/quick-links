@@ -1,0 +1,11 @@
+.file {
+  padding: 8px 16px 8px 32px;
+  background-image: url("./txt-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &:hover {
+    background-color: #bdb4e1;
+  }
+}
