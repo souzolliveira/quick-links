@@ -4,7 +4,16 @@ describe("App", () => {
   beforeEach(() => {
     cy.visit(baseUrl);
   });
+
   it("Verify if app component exist", () => {
     cy.get("#app").should("exist");
+  });
+
+  it("Verify if sidebar with quick links exist", () => {
+    cy.get("#sidebar").should("exist");
+  });
+
+  it("Verify if mainbar with files exist", () => {
+    cy.get("#mainbar").should("exist");
   });
 });
