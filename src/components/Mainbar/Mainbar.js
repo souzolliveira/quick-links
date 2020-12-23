@@ -45,7 +45,9 @@ const Mainbar = ({ history }) => {
 
   return (
     <div id="mainbar" className={styles.mainbar}>
-      <h2 onClick={() => history.push({ pathname: "/" })}>Files</h2>
+      <h2 onClick={() => history.push({ pathname: "/" })} id="filesTitle">
+        Files
+      </h2>
       <div className={styles.files}>
         {files?.map((file, index) => {
           return <File key={index} fileName={file} />;
