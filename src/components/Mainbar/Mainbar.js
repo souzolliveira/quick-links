@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
 
 import File from "components/File/File";
 
 import styles from "./Mainbar.module.scss";
 
-const Mainbar = () => {
+const Mainbar = ({ history }) => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const Mainbar = () => {
 
   return (
     <div id="mainbar" className={styles.mainbar}>
-      <h2>Files</h2>
+      <h2 onClick={() => history.push({ pathname: "/" })}>Files</h2>
       <div className={styles.files}>
         {files?.map((file, index) => {
           return <File key={index} fileName={file} />;
@@ -54,4 +55,4 @@ const Mainbar = () => {
   );
 };
 
-export default Mainbar;
+export default withRouter(Mainbar);
