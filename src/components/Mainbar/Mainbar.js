@@ -1,6 +1,7 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
+import Content from "components/Content/Content";
 import File from "components/File/File";
 
 import styles from "./Mainbar.module.scss";
@@ -44,11 +45,20 @@ const Mainbar = ({ history }) => {
       <h2 onClick={() => history.push({ pathname: "/" })} id="filesTitle">
         Files
       </h2>
-      <div className={styles.files}>
-        {files?.map((file, index) => {
-          return <File key={index} fileName={file} />;
-        })}
-      </div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          children={
+            <div className={styles.files}>
+              {files?.map((file, index) => {
+                return <File key={index} fileName={file} />;
+              })}
+            </div>
+          }
+        />
+        <Route path="/:file" children={Content} />
+      </Switch>
     </div>
   );
 };
