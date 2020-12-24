@@ -6,7 +6,7 @@ import File from "components/File/File";
 
 import styles from "./Mainbar.module.scss";
 
-const Mainbar = ({ history }) => {
+const Mainbar = ({ history, handleAddLink }) => {
   const files = [
     "file01",
     "file02",
@@ -52,7 +52,9 @@ const Mainbar = ({ history }) => {
           children={
             <div className={styles.files}>
               {files?.map((file, index) => {
-                return <File key={index} fileName={file} />;
+                return (
+                  <File key={index} fileName={file} onClick={handleAddLink} />
+                );
               })}
             </div>
           }
