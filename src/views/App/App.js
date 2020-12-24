@@ -10,7 +10,7 @@ const App = () => {
   const [quickLinks, setQuickLinks] = useState([]);
 
   const handleAddLink = (link) => {
-    setQuickLinks((links) => [...links, link]);
+    setQuickLinks((links) => [link, ...links]);
   };
 
   return (
