@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import styles from "./Sidebar.module.scss";
 
@@ -9,7 +9,11 @@ const Sidebar = ({ quickLinks }) => {
       <h4>Quick Links</h4>
       <div className={styles.files}>
         {quickLinks?.map((file, index) => {
-          return <a key={index}>{file}</a>;
+          return (
+            <Link to={`/${file}`} key={index}>
+              {file}
+            </Link>
+          );
         })}
       </div>
     </div>
