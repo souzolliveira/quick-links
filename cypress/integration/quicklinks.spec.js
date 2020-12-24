@@ -83,7 +83,6 @@ describe("Files", () => {
         expect(data[0].innerHTML).to.equal(file01);
         const array = [];
         for (let i = 0; i < data.length; i++) {
-          console.log(data[i].innerHTML);
           if (data[i].innerHTML === file01) array.push(data[i].innerHTML);
         }
         expect(array.length).to.equal(1);

@@ -10,7 +10,11 @@ const App = () => {
   const [quickLinks, setQuickLinks] = useState([]);
 
   const handleAddLink = (link) => {
-    setQuickLinks((links) => [link, ...links]);
+    if (quickLinks.findIndex((ql) => ql === link) !== -1) {
+      setQuickLinks([link, ...quickLinks.filter((ql) => ql !== link)]);
+    } else {
+      setQuickLinks((links) => [link, ...links]);
+    }
   };
 
   return (
