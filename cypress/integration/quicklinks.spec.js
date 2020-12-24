@@ -50,4 +50,43 @@ describe("Files", () => {
       .find("a")
       .then((data) => expect(data[0].innerHTML).to.equal(file02));
   });
+
+  it("Verify if when click on file, it's added on quick links in first position and it isnt duplicated", () => {
+    let file01, file02, file03;
+    let index01, index02, index03;
+    cy.get("#mainbar")
+      .find("a")
+      .then((data) => {
+        index01 = Math.floor(Math.random() * data.length);
+        file01 = data[index01].innerHTML;
+        cy.get(`#${file01}`).click();
+        cy.get("#filesTitle").click();
+        do {
+          index02 = Math.floor(Math.random() * data.length);
+        } while (index02 === index01);
+        file02 = data[index02].innerHTML;
+        cy.get(`#${file02}`).click();
+        cy.get("#filesTitle").click();
+        do {
+          index03 = Math.floor(Math.random() * data.length);
+        } while (index03 === index01 || index03 === index02);
+        file03 = data[index03].innerHTML;
+        cy.get(`#${file03}`).click();
+        cy.get("#filesTitle").click();
+        cy.get(`#${file01}`).click();
+        cy.get("#filesTitle").click();
+      });
+    cy.get("#filesTitle").click();
+    cy.get("#sidebar")
+      .find("a")
+      .then((data) => {
+        expect(data[0].innerHTML).to.equal(file01);
+        const array = [];
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i].innerHTML);
+          if (data[i].innerHTML === file01) array.push(data[i].innerHTML);
+        }
+        expect(array.length).to.equal(1);
+      });
+  });
 });
