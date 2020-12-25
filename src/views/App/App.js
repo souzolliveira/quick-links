@@ -8,6 +8,7 @@ import styles from "./App.module.scss";
 
 const App = () => {
   const [quickLinks, setQuickLinks] = useState([]);
+  const [isEnabled, setIsEnabled] = useState(true);
 
   const handleAddLink = (link) => {
     const temp = [...quickLinks];
@@ -32,9 +33,13 @@ const App = () => {
       <div id="app" className={styles.app}>
         <Sidebar
           quickLinks={quickLinks}
+          isEnabled={isEnabled}
+          setIsEnabled={setIsEnabled}
           clearQuickLinks={() => clearQuickLinks()}
         />
-        <Mainbar handleAddLink={(link) => handleAddLink(link)} />
+        <Mainbar
+          handleAddLink={(link) => (isEnabled ? handleAddLink(link) : {})}
+        />
       </div>
     </Router>
   );
