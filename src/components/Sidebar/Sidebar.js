@@ -8,6 +8,8 @@ const Sidebar = ({ quickLinks, clearQuickLinks }) => {
     <div id="sidebar" className={styles.sidebar}>
       <div className={styles.header}>
         <h4>Quick Links</h4>
+        <input id="enableCheckbox" type="checkbox" />
+        <div style={{ flex: "1 1 0" }} />
         <button
           id="clearButton"
           type="button"
