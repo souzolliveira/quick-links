@@ -3,12 +3,16 @@ import { Link, withRouter } from "react-router-dom";
 
 import styles from "./Sidebar.module.scss";
 
-const Sidebar = ({ quickLinks }) => {
+const Sidebar = ({ quickLinks, clearQuickLinks }) => {
   return (
     <div id="sidebar" className={styles.sidebar}>
       <div className={styles.header}>
         <h4>Quick Links</h4>
-        <button id="clearButton" type="button">
+        <button
+          id="clearButton"
+          type="button"
+          onClick={() => clearQuickLinks()}
+        >
           Clear
         </button>
       </div>

@@ -23,10 +23,17 @@ const App = () => {
     setQuickLinks([link, ...temp]);
   };
 
+  const clearQuickLinks = () => {
+    setQuickLinks([]);
+  };
+
   return (
     <Router>
       <div id="app" className={styles.app}>
-        <Sidebar quickLinks={quickLinks} />
+        <Sidebar
+          quickLinks={quickLinks}
+          clearQuickLinks={() => clearQuickLinks()}
+        />
         <Mainbar handleAddLink={(link) => handleAddLink(link)} />
       </div>
     </Router>
