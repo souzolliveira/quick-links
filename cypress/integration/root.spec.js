@@ -1,3 +1,5 @@
+/* eslint-disable jest/valid-expect-in-promise */
+/* eslint-disable no-undef */
 const { baseUrl } = Cypress.config();
 
 describe("App", () => {
