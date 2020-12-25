@@ -6,7 +6,12 @@ import styles from "./Sidebar.module.scss";
 const Sidebar = ({ quickLinks }) => {
   return (
     <div id="sidebar" className={styles.sidebar}>
-      <h4>Quick Links</h4>
+      <div className={styles.header}>
+        <h4>Quick Links</h4>
+        <button id="clearButton" type="button">
+          Clear
+        </button>
+      </div>
       <div className={styles.files}>
         {quickLinks?.map((file, index) => {
           return (
