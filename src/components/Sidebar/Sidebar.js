@@ -3,7 +3,13 @@ import { Link, withRouter } from "react-router-dom";
 
 import styles from "./Sidebar.module.scss";
 
-const Sidebar = ({ quickLinks, isEnabled, setIsEnabled, clearQuickLinks }) => {
+const Sidebar = ({
+  quickLinks,
+  isEnabled,
+  setIsEnabled,
+  handleAddLink,
+  clearQuickLinks,
+}) => {
   return (
     <div id="sidebar" className={styles.sidebar}>
       <div className={styles.header}>
@@ -26,7 +32,11 @@ const Sidebar = ({ quickLinks, isEnabled, setIsEnabled, clearQuickLinks }) => {
       <div className={styles.files}>
         {quickLinks?.map((file, index) => {
           return (
-            <Link to={`/${file}`} key={index}>
+            <Link
+              to={`/${file}`}
+              key={index}
+              onClick={() => handleAddLink(file)}
+            >
               {file}
             </Link>
           );

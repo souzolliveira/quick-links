@@ -35,6 +35,7 @@ const App = () => {
           quickLinks={quickLinks}
           isEnabled={isEnabled}
           setIsEnabled={setIsEnabled}
+          handleAddLink={(link) => (isEnabled ? handleAddLink(link) : {})}
           clearQuickLinks={() => clearQuickLinks()}
         />
         <Mainbar
